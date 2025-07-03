@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Resume, ResumeStep, RESUME_STEPS } from '@/types/resume';
 import { useResumes } from '@/hooks/useResumes';
 import { useToast } from '@/hooks/use-toast';
+import { Button } from '@/components/ui/button';
 import ResumeStepNavigator from '@/components/resume/ResumeStepNavigator';
 import BasicInfoForm from '@/components/resume/forms/BasicInfoForm';
 import EducationForm from '@/components/resume/forms/EducationForm';
@@ -143,44 +144,46 @@ const ResumeCreate = () => {
   const isLastStep = currentIndex === RESUME_STEPS.length - 1;
 
   return (
-    <div>
+    <div className="bg-background min-h-screen">
       <ResumeStepNavigator
         currentStep={currentStep}
         onStepChange={handleStepChange}
         completedSteps={completedSteps}
       />
 
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 py-8">
         {renderCurrentForm()}
 
-        <div className="flex justify-between mt-8">
-          <button
+        <div className="flex justify-between items-center mt-12 max-w-4xl mx-auto">
+          <Button
             onClick={handlePrevious}
             disabled={isFirstStep}
-            className={`px-6 py-2 rounded-md font-medium transition-colors ${
-              isFirstStep
-                ? 'bg-muted text-muted-foreground cursor-not-allowed'
-                : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+            variant="outline"
+            size="lg"
+            className={`px-8 h-12 ${
+              isFirstStep ? 'opacity-50 cursor-not-allowed' : ''
             }`}
           >
-            이전
-          </button>
+            ← 이전
+          </Button>
 
           <div className="flex gap-4">
             {isLastStep ? (
-              <button
+              <Button
                 onClick={handleSave}
-                className="px-6 py-2 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors"
+                size="lg"
+                className="px-8 h-12 bg-primary hover:bg-primary/90"
               >
-                {isEditing ? '수정 완료' : '저장'}
-              </button>
+                {isEditing ? '수정 완료' : '저장하기'} ✓
+              </Button>
             ) : (
-              <button
+              <Button
                 onClick={handleNext}
-                className="px-6 py-2 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors"
+                size="lg"
+                className="px-8 h-12 bg-primary hover:bg-primary/90"
               >
-                다음
-              </button>
+                다음 →
+              </Button>
             )}
           </div>
         </div>
