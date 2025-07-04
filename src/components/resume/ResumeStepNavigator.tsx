@@ -27,7 +27,7 @@ const ResumeStepNavigator = ({ currentStep, onStepChange, completedSteps }: Resu
           </div>
           
           {/* Steps */}
-          <div className="relative flex">
+          <div className="relative flex -space-x-4">
             {RESUME_STEPS.map((step, index) => {
               const isActive = step.key === currentStep;
               const isCompleted = completedSteps.includes(step.key);
@@ -35,24 +35,28 @@ const ResumeStepNavigator = ({ currentStep, onStepChange, completedSteps }: Resu
               const isLastStep = index === RESUME_STEPS.length - 1;
 
               return (
-                <div key={step.key} className={cn("flex-1", !isLastStep && "relative")}>
+                <div key={step.key} className="flex-1 min-w-0">
                   <button
                     onClick={() => isAccessible && onStepChange(step.key)}
                     disabled={!isAccessible}
                     className={cn(
                       "relative w-full h-16 flex items-center justify-center text-sm font-semibold transition-all duration-300 shadow-sm",
                       "border-2 bg-background",
-                      // Arrow shape using clip-path
-                      !isLastStep && "clip-path-[polygon(0_0,calc(100%-20px)_0,100%_50%,calc(100%-20px)_100%,0_100%)]",
-                      isLastStep && "rounded-r-lg",
-                      index === 0 && "rounded-l-lg",
-                      isActive && "border-primary bg-primary text-primary-foreground shadow-lg z-20",
-                      isCompleted && !isActive && "border-green-500 bg-green-500 text-white z-10",
+                      // Arrow shape using clip-path - 뾰족한 부분이 20px 돌출
+                      !isLastStep && "pl-6 pr-2",
+                      isLastStep && "rounded-r-lg pl-6",
+                      index === 0 && "rounded-l-lg pl-4",
+                      isActive && "border-primary bg-primary text-primary-foreground shadow-lg z-30",
+                      isCompleted && !isActive && "border-green-500 bg-green-500 text-white z-20",
                       !isActive && !isCompleted && isAccessible && "border-muted-foreground/30 text-muted-foreground hover:border-primary hover:text-primary z-10",
                       !isAccessible && "border-muted-foreground/20 text-muted-foreground/40 cursor-not-allowed z-0"
                     )}
                     style={{
-                      clipPath: !isLastStep ? 'polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%)' : undefined
+                      clipPath: !isLastStep 
+                        ? 'polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%)' 
+                        : index === 0 
+                          ? undefined 
+                          : 'polygon(20px 0, 100% 0, 100% 100%, 20px 100%, 0 50%)'
                     }}
                   >
                     <div className="flex items-center gap-3">
@@ -71,7 +75,7 @@ const ResumeStepNavigator = ({ currentStep, onStepChange, completedSteps }: Resu
                         )}
                       </div>
                       <span className={cn(
-                        "text-sm font-medium",
+                        "text-sm font-medium truncate",
                         isActive && "font-semibold"
                       )}>
                         {step.label}
