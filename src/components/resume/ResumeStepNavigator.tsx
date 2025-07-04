@@ -1,6 +1,5 @@
 import { RESUME_STEPS, ResumeStep } from '@/types/resume';
 import { cn } from '@/lib/utils';
-import { Baby, GraduationCap, Briefcase, Award, Code, Users } from 'lucide-react';
 
 interface ResumeStepNavigatorProps {
   currentStep: ResumeStep;
@@ -13,28 +12,9 @@ const ResumeStepNavigator = ({ currentStep, onStepChange, completedSteps }: Resu
     return RESUME_STEPS.findIndex(step => step.key === currentStep);
   };
 
-  const getLifecycleIcon = (step: ResumeStep) => {
-    switch (step) {
-      case 'basic':
-        return Baby;
-      case 'education':
-        return GraduationCap;
-      case 'career':
-        return Briefcase;
-      case 'certificates':
-        return Award;
-      case 'skills':
-        return Code;
-      case 'activities':
-        return Users;
-      default:
-        return Baby;
-    }
-  };
-
   return (
     <div className="bg-card border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 py-10 pt-16">
+      <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="relative">
           {/* Progress Line */}
           <div className="absolute top-6 left-0 right-0 h-0.5 bg-muted">
@@ -55,43 +35,28 @@ const ResumeStepNavigator = ({ currentStep, onStepChange, completedSteps }: Resu
               const isLastStep = index === RESUME_STEPS.length - 1;
 
               return (
-                <div key={step.key} className="flex-1 min-w-0 relative">
-                  {/* Lifecycle Icon */}
-                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-40">
-                    <div className={cn(
-                      "w-12 h-12 rounded-full flex items-center justify-center border-2 bg-background shadow-sm",
-                      isActive && "border-primary bg-primary text-primary-foreground",
-                      isCompleted && !isActive && "border-green-500 bg-green-500 text-white",
-                      !isActive && !isCompleted && "border-muted text-muted-foreground"
-                    )}>
-                      {(() => {
-                        const IconComponent = getLifecycleIcon(step.key);
-                        return <IconComponent size={20} />;
-                      })()}
-                    </div>
-                  </div>
-
+                <div key={step.key} className="flex-1 min-w-0">
                   <button
                     onClick={() => isAccessible && onStepChange(step.key)}
                     disabled={!isAccessible}
                     className={cn(
                       "relative w-full h-16 flex items-center justify-center text-sm font-semibold transition-all duration-300 shadow-sm",
                       "border-2 bg-background",
-                      // 첫번째와 마지막 처리
-                      index === 0 && "pl-4 pr-2",
-                      isLastStep && "pl-6 pr-4",
-                      index !== 0 && !isLastStep && "pl-6 pr-2",
+                      // Arrow shape using clip-path - 뾰족한 부분이 20px 돌출
+                      !isLastStep && "pl-6 pr-2",
+                      isLastStep && "rounded-r-lg pl-6",
+                      index === 0 && "rounded-l-lg pl-4",
                       isActive && "border-primary bg-primary text-primary-foreground shadow-lg z-30",
                       isCompleted && !isActive && "border-green-500 bg-green-500 text-white z-20",
                       !isActive && !isCompleted && isAccessible && "border-muted-foreground/30 text-muted-foreground hover:border-primary hover:text-primary z-10",
                       !isAccessible && "border-muted-foreground/20 text-muted-foreground/40 cursor-not-allowed z-0"
                     )}
                     style={{
-                      clipPath: index === 0 
-                        ? 'polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%)'  // 첫번째: 왼쪽 사각형, 오른쪽 화살표
-                        : isLastStep 
-                          ? 'polygon(20px 0, 100% 0, 100% 100%, 20px 100%, 0 50%)'  // 마지막: 왼쪽 화살표, 오른쪽 사각형
-                          : 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)'  // 중간: 양쪽 화살표
+                      clipPath: !isLastStep 
+                        ? 'polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%)' 
+                        : index === 0 
+                          ? undefined 
+                          : 'polygon(20px 0, 100% 0, 100% 100%, 20px 100%, 0 50%)'
                     }}
                   >
                     <div className="flex items-center gap-3">
