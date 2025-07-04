@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useCommonCodes } from '@/hooks/useCommonCodes';
 
 interface EducationFormProps {
   resume: Resume;
@@ -13,6 +14,8 @@ interface EducationFormProps {
 }
 
 const EducationForm = ({ resume, setResume, onStepComplete }: EducationFormProps) => {
+  const { getCommonCodesByCategory } = useCommonCodes();
+  const degrees = getCommonCodesByCategory('degree');
   const [newEducation, setNewEducation] = useState<Omit<Education, 'id'>>({
     school: '',
     major: '',
@@ -130,11 +133,11 @@ const EducationForm = ({ resume, setResume, onStepComplete }: EducationFormProps
                   <SelectValue placeholder="학위를 선택해주세요" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="고등학교 졸업">고등학교 졸업</SelectItem>
-                  <SelectItem value="전문학사">전문학사</SelectItem>
-                  <SelectItem value="학사">학사</SelectItem>
-                  <SelectItem value="석사">석사</SelectItem>
-                  <SelectItem value="박사">박사</SelectItem>
+                  {degrees.map((degree) => (
+                    <SelectItem key={degree.id} value={degree.value}>
+                      {degree.value}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>

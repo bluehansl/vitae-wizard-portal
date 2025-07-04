@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ResumeCreate from "./pages/ResumeCreate";
 import ResumeView from "./pages/ResumeView";
+import CommonCodeManagement from "./pages/CommonCodeManagement";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/layout/Layout";
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/resume/create" element={<Layout><ResumeCreate /></Layout>} />
           <Route path="/resume/edit/:id" element={<Layout><ResumeCreate /></Layout>} />
           <Route path="/resume/view/:id" element={<Layout><ResumeView /></Layout>} />
+          <Route path="/common-codes" element={<Layout><CommonCodeManagement /></Layout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

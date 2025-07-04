@@ -5,6 +5,8 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useCommonCodes } from '@/hooks/useCommonCodes';
 
 interface CareerFormProps {
   resume: Resume;
@@ -13,6 +15,8 @@ interface CareerFormProps {
 }
 
 const CareerForm = ({ resume, setResume, onStepComplete }: CareerFormProps) => {
+  const { getCommonCodesByCategory } = useCommonCodes();
+  const positions = getCommonCodesByCategory('position');
   const [newCareer, setNewCareer] = useState<Omit<Career, 'id'>>({
     company: '',
     position: '',
@@ -121,12 +125,18 @@ const CareerForm = ({ resume, setResume, onStepComplete }: CareerFormProps) => {
 
             <div className="space-y-2">
               <Label htmlFor="position">직위 *</Label>
-              <Input
-                id="position"
-                value={newCareer.position}
-                onChange={(e) => handleChange('position', e.target.value)}
-                placeholder="예: 프론트엔드 개발자"
-              />
+              <Select value={newCareer.position} onValueChange={(value) => handleChange('position', value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="직위를 선택해주세요" />
+                </SelectTrigger>
+                <SelectContent>
+                  {positions.map((position) => (
+                    <SelectItem key={position.id} value={position.value}>
+                      {position.value}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div className="space-y-2">
