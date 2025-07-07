@@ -70,14 +70,16 @@ const ResumeStepNavigator = ({ currentStep, onStepChange, completedSteps }: Resu
       case 'activities':
         return (
           <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
-            {/* 할아버지 - 지팡이에 의지하는 자세 */}
-            <ellipse cx="11" cy="5.5" rx="2" ry="2.5"/>
-            <path d="M9 8.5C9 8.5 9.8 8 11 8C12.2 8 13 8.5 13 8.5C13.5 9 13.8 10.5 13.8 13L13.5 17.5C13.5 18 13 18.5 12.5 18.5L11.8 18.5L11.8 22.5C11.8 23 11.3 23.5 10.8 23.5L10.2 23.5C9.7 23.5 9.2 23 9.2 22.5L9.2 18.5L8.5 18.5C8 18.5 7.5 18 7.5 17.5L7.2 13C7.2 10.5 7.5 9 9 8.5Z"/>
-            <ellipse cx="6.5" cy="13" rx="1" ry="2"/>
-            {/* 지팡이 든 팔과 지팡이 */}
-            <ellipse cx="15" cy="12" rx="0.8" ry="1.5"/>
-            <rect x="16.5" y="8" width="1" height="15" rx="0.5"/>
-            <circle cx="17" cy="7.5" r="0.8"/>
+            {/* 할아버지 - 허리 굽힌 자세로 지팡이에 의지 */}
+            <ellipse cx="10" cy="6" rx="2" ry="2.5"/>
+            {/* 굽은 몸통 */}
+            <path d="M8.5 9C8.5 9 9 8.5 10 8.5C11 8.5 11.5 9 11.5 9C12 9.5 12.5 11 13 13.5C13.2 15 13.5 16.5 14 18L13.5 18.5L12.5 18.8L12.2 22.5C12.2 23 11.7 23.5 11.2 23.5L10.8 23.5C10.3 23.5 9.8 23 9.8 22.5L9.5 18.8L8.5 18.5C8 18.2 7.5 17.5 7.5 17L7 13.5C7 11 7.5 9.5 8.5 9Z"/>
+            {/* 왼팔 - 앞으로 뻗은 */}
+            <ellipse cx="6" cy="14" rx="1" ry="2" transform="rotate(-30 6 14)"/>
+            {/* 오른팔과 지팡이 - 지팡이를 잡고 있는 */}
+            <ellipse cx="15" cy="13" rx="0.8" ry="1.8" transform="rotate(20 15 13)"/>
+            <rect x="16" y="9" width="1.2" height="14" rx="0.6" transform="rotate(10 16.6 16)"/>
+            <ellipse cx="16.2" cy="8.5" rx="1" ry="0.8"/>
           </svg>
         );
       default:
