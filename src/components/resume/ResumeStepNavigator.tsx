@@ -18,48 +18,76 @@ const ResumeStepNavigator = ({ currentStep, onStepChange, completedSteps }: Resu
       case 'basic':
         return (
           <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
-            {/* 더 사실적인 갓난아기 실루엣 */}
-            <path d="M12 3C10.2 3 8.5 4.2 8.5 6C8.5 7.5 9.5 8.8 11 9.2C10.8 9.6 10.5 10.2 10.5 11C10.5 12.8 11.2 14 12 14S13.5 12.8 13.5 11C13.5 10.2 13.2 9.6 13 9.2C14.5 8.8 15.5 7.5 15.5 6C15.5 4.2 13.8 3 12 3M12 15C9.8 15 8 16.5 8 18.5V21C8 21.5 8.5 22 9 22H15C15.5 22 16 21.5 16 21V18.5C16 16.5 14.2 15 12 15Z"/>
-            {/* 작은 손과 발 */}
-            <circle cx="9.5" cy="16.5" r="0.8" opacity="0.8"/>
-            <circle cx="14.5" cy="16.5" r="0.8" opacity="0.8"/>
-            <circle cx="10.5" cy="11.5" r="0.6" opacity="0.8"/>
-            <circle cx="13.5" cy="11.5" r="0.6" opacity="0.8"/>
+            {/* 갓난아기 - 작고 둥근 형태 */}
+            <circle cx="12" cy="6" r="3" />
+            <ellipse cx="12" cy="14" rx="4" ry="6" />
+            <circle cx="10" cy="12" r="1" />
+            <circle cx="14" cy="12" r="1" />
+            <circle cx="9" cy="16" r="1" />
+            <circle cx="15" cy="16" r="1" />
           </svg>
         );
       case 'education':
         return (
           <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
-            {/* 기는 아기 실루엣 */}
-            <path d="M12 4C10.5 4 9.5 5 9.5 6.5S10.5 9 12 9S14.5 7.5 14.5 6.5S13.5 4 12 4M7 10C6 10 5 11 5 12V14C5 15 6 16 7 16H8V18C8 19 9 20 10 20H14C15 20 16 19 16 18V16H17C18 16 19 15 19 14V12C19 11 18 10 17 10H7Z"/>
+            {/* 어린이 - 작지만 팔다리가 있는 형태 */}
+            <circle cx="12" cy="5" r="2.5" />
+            <rect x="10.5" y="8" width="3" height="6" rx="1.5" />
+            <rect x="8" y="9" width="2" height="4" rx="1" />
+            <rect x="14" y="9" width="2" height="4" rx="1" />
+            <rect x="10" y="15" width="1.5" height="5" rx="0.75" />
+            <rect x="12.5" y="15" width="1.5" height="5" rx="0.75" />
           </svg>
         );
       case 'career':
         return (
           <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
-            {/* 성인 실루엣 */}
-            <path d="M12 2C10.5 2 9.5 3 9.5 4.5S10.5 7 12 7S14.5 5.5 14.5 4.5S13.5 2 12 2M10.5 8C9.5 8 8.5 9 8.5 10V12H7V22H17V12H15.5V10C15.5 9 14.5 8 13.5 8H10.5Z"/>
+            {/* 성인 - 일반적인 성인 형태 */}
+            <circle cx="12" cy="4.5" r="2.5" />
+            <rect x="10" y="8" width="4" height="7" rx="2" />
+            <rect x="7" y="9" width="2.5" height="5" rx="1.25" />
+            <rect x="14.5" y="9" width="2.5" height="5" rx="1.25" />
+            <rect x="10" y="16" width="1.5" height="6" rx="0.75" />
+            <rect x="12.5" y="16" width="1.5" height="6" rx="0.75" />
           </svg>
         );
       case 'certificates':
         return (
           <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
-            {/* 중년 실루엣 */}
-            <path d="M12 2C10 2 8.5 3.5 8.5 5.5S10 9 12 9S15.5 7.5 15.5 5.5S14 2 12 2M9 10C7.5 10 6.5 11 6.5 12.5V14H6V22H18V14H17.5V12.5C17.5 11 16.5 10 15 10H9Z"/>
+            {/* 중년 - 약간 더 넓은 어깨 */}
+            <circle cx="12" cy="4.5" r="2.5" />
+            <rect x="9.5" y="8" width="5" height="7" rx="2.5" />
+            <rect x="6.5" y="9" width="3" height="5" rx="1.5" />
+            <rect x="14.5" y="9" width="3" height="5" rx="1.5" />
+            <rect x="10" y="16" width="1.5" height="6" rx="0.75" />
+            <rect x="12.5" y="16" width="1.5" height="6" rx="0.75" />
           </svg>
         );
       case 'skills':
         return (
           <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
-            {/* 장년 실루엣 */}
-            <path d="M12 2C10 2 8 4 8 6S10 10 12 10S16 8 16 6S14 2 12 2M8 11C6.5 11 5.5 12 5.5 13.5V15H5V22H19V15H18.5V13.5C18.5 12 17.5 11 16 11H8Z"/>
+            {/* 장년 - 더 성숙한 형태, 약간 구부정한 */}
+            <circle cx="12" cy="5" r="2.5" />
+            <path d="M9 8 Q12 9 15 8 L15 15 Q12 16 9 15 Z" />
+            <rect x="6" y="10" width="3" height="4" rx="1.5" />
+            <rect x="15" y="10" width="3" height="4" rx="1.5" />
+            <rect x="10" y="16" width="1.5" height="6" rx="0.75" />
+            <rect x="12.5" y="16" width="1.5" height="6" rx="0.75" />
           </svg>
         );
       case 'activities':
         return (
           <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
-            {/* 할아버지와 지팡이 실루엣 */}
-            <path d="M12 2C10 2 8.5 3.5 8.5 5.5S10 9 12 9S15.5 7.5 15.5 5.5S14 2 12 2M9.5 10C8 10 7 11 7 12.5V14H6.5V20H8V22H10V20H14V22H16V20H17.5V14H17V12.5C17 11 16 10 14.5 10H9.5M18 16V22H20V16C20 15.5 19.5 15 19 15S18 15.5 18 16Z"/>
+            {/* 할아버지 - 지팡이를 든 노인 */}
+            <circle cx="11" cy="5" r="2.5" />
+            <path d="M8 8 Q11 9 14 8 L13 15 Q11 16 8 15 Z" />
+            <rect x="5" y="10" width="2.5" height="4" rx="1.25" />
+            <rect x="13" y="10" width="2.5" height="4" rx="1.25" />
+            <rect x="9" y="16" width="1.5" height="6" rx="0.75" />
+            <rect x="11.5" y="16" width="1.5" height="6" rx="0.75" />
+            {/* 지팡이 */}
+            <rect x="16" y="8" width="1" height="14" rx="0.5" />
+            <circle cx="16.5" cy="7" r="1" />
           </svg>
         );
       default:
