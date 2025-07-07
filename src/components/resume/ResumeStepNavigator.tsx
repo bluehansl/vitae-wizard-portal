@@ -18,8 +18,13 @@ const ResumeStepNavigator = ({ currentStep, onStepChange, completedSteps }: Resu
       case 'basic':
         return (
           <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
-            {/* 갓난아이 실루엣 */}
-            <path d="M12 2C10.5 2 9 3 9 4.5C9 5.5 9.5 6.5 10.5 7C10.2 7.5 10 8.2 10 9C10 11 11.5 12.5 12 12.5S14 11 14 9C14 8.2 13.8 7.5 13.5 7C14.5 6.5 15 5.5 15 4.5C15 3 13.5 2 12 2M12 13.5C10 13.5 8.5 15 8.5 17V22H15.5V17C15.5 15 14 13.5 12 13.5Z"/>
+            {/* 더 사실적인 갓난아기 실루엣 */}
+            <path d="M12 3C10.2 3 8.5 4.2 8.5 6C8.5 7.5 9.5 8.8 11 9.2C10.8 9.6 10.5 10.2 10.5 11C10.5 12.8 11.2 14 12 14S13.5 12.8 13.5 11C13.5 10.2 13.2 9.6 13 9.2C14.5 8.8 15.5 7.5 15.5 6C15.5 4.2 13.8 3 12 3M12 15C9.8 15 8 16.5 8 18.5V21C8 21.5 8.5 22 9 22H15C15.5 22 16 21.5 16 21V18.5C16 16.5 14.2 15 12 15Z"/>
+            {/* 작은 손과 발 */}
+            <circle cx="9.5" cy="16.5" r="0.8" opacity="0.8"/>
+            <circle cx="14.5" cy="16.5" r="0.8" opacity="0.8"/>
+            <circle cx="10.5" cy="11.5" r="0.6" opacity="0.8"/>
+            <circle cx="13.5" cy="11.5" r="0.6" opacity="0.8"/>
           </svg>
         );
       case 'education':
@@ -134,16 +139,16 @@ const ResumeStepNavigator = ({ currentStep, onStepChange, completedSteps }: Resu
                   </button>
                   
                   {/* 생애주기 아이콘 - 도형 위에 서 있는 느낌 */}
-                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-40">
+                  <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 z-40">
                     <div className={cn(
-                      "p-2 rounded-full transition-all duration-300 drop-shadow-lg",
-                      "w-16 h-16 flex items-center justify-center",
-                      isActive && "text-primary bg-primary/10 scale-110",
-                      isCompleted && !isActive && "text-green-500 bg-green-50",
-                      !isActive && !isCompleted && isAccessible && "text-muted-foreground hover:text-primary hover:scale-105",
-                      !isAccessible && "text-muted-foreground/40"
+                      "p-3 rounded-full transition-all duration-300 drop-shadow-lg bg-white border-2",
+                      "w-20 h-20 flex items-center justify-center",
+                      isActive && "text-primary border-primary scale-110 shadow-lg",
+                      isCompleted && !isActive && "text-green-600 border-green-500 bg-green-50",
+                      !isActive && !isCompleted && isAccessible && "text-slate-600 border-slate-300 hover:text-primary hover:border-primary hover:scale-105",
+                      !isAccessible && "text-slate-400 border-slate-200"
                     )}>
-                      <div className="w-12 h-12">
+                      <div className="w-14 h-14">
                         {getLifecycleIcon(step.key)}
                       </div>
                     </div>
