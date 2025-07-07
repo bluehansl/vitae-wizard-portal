@@ -18,76 +18,61 @@ const ResumeStepNavigator = ({ currentStep, onStepChange, completedSteps }: Resu
       case 'basic':
         return (
           <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
-            {/* 갓난아기 - 작고 둥근 형태 */}
-            <circle cx="12" cy="6" r="3" />
-            <ellipse cx="12" cy="14" rx="4" ry="6" />
-            <circle cx="10" cy="12" r="1" />
-            <circle cx="14" cy="12" r="1" />
-            <circle cx="9" cy="16" r="1" />
-            <circle cx="15" cy="16" r="1" />
+            {/* 갓난아기 - 연결된 형태 */}
+            <path d="M12 4C10.5 4 9.5 5 9.5 6.5C9.5 8 10.5 9 12 9C13.5 9 14.5 8 14.5 6.5C14.5 5 13.5 4 12 4Z M10 10C10 10 10.5 10 12 10C13.5 10 14 10 14 10C15 10.5 15.5 11.5 15.5 13L15.5 18C15.5 19 14.5 20 13.5 20L10.5 20C9.5 20 8.5 19 8.5 18L8.5 13C8.5 11.5 9 10.5 10 10Z"/>
           </svg>
         );
       case 'education':
         return (
           <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
-            {/* 어린이 - 작지만 팔다리가 있는 형태 */}
-            <circle cx="12" cy="5" r="2.5" />
-            <rect x="10.5" y="8" width="3" height="6" rx="1.5" />
-            <rect x="8" y="9" width="2" height="4" rx="1" />
-            <rect x="14" y="9" width="2" height="4" rx="1" />
-            <rect x="10" y="15" width="1.5" height="5" rx="0.75" />
-            <rect x="12.5" y="15" width="1.5" height="5" rx="0.75" />
+            {/* 어린이 - 연결된 형태 */}
+            <path d="M12 3C10.5 3 9.5 4 9.5 5.5C9.5 7 10.5 8 12 8C13.5 8 14.5 7 14.5 5.5C14.5 4 13.5 3 12 3Z M10.5 9C10.5 9 11 9 12 9C13 9 13.5 9 13.5 9C14.5 9.5 15 10.5 15 12L15 16C15 17 14.5 17.5 14 17.5L13.5 17.5L13.5 21C13.5 21.5 13 22 12.5 22L11.5 22C11 22 10.5 21.5 10.5 21L10.5 17.5L10 17.5C9.5 17.5 9 17 9 16L9 12C9 10.5 9.5 9.5 10.5 9Z"/>
+            {/* 팔 */}
+            <ellipse cx="8" cy="11.5" rx="1" ry="2.5"/>
+            <ellipse cx="16" cy="11.5" rx="1" ry="2.5"/>
           </svg>
         );
       case 'career':
         return (
           <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
-            {/* 성인 - 일반적인 성인 형태 */}
-            <circle cx="12" cy="4.5" r="2.5" />
-            <rect x="10" y="8" width="4" height="7" rx="2" />
-            <rect x="7" y="9" width="2.5" height="5" rx="1.25" />
-            <rect x="14.5" y="9" width="2.5" height="5" rx="1.25" />
-            <rect x="10" y="16" width="1.5" height="6" rx="0.75" />
-            <rect x="12.5" y="16" width="1.5" height="6" rx="0.75" />
+            {/* 성인 - 연결된 형태 */}
+            <path d="M12 2.5C10.5 2.5 9.5 3.5 9.5 5C9.5 6.5 10.5 7.5 12 7.5C13.5 7.5 14.5 6.5 14.5 5C14.5 3.5 13.5 2.5 12 2.5Z M10 8.5C10 8.5 10.5 8.5 12 8.5C13.5 8.5 14 8.5 14 8.5C15 9 15.5 10 15.5 11.5L15.5 16.5C15.5 17 15 17.5 14.5 17.5L13.5 17.5L13.5 21.5C13.5 22 13 22.5 12.5 22.5L11.5 22.5C11 22.5 10.5 22 10.5 21.5L10.5 17.5L9.5 17.5C9 17.5 8.5 17 8.5 16.5L8.5 11.5C8.5 10 9 9 10 8.5Z"/>
+            {/* 팔 */}
+            <ellipse cx="7.5" cy="12" rx="1.5" ry="3"/>
+            <ellipse cx="16.5" cy="12" rx="1.5" ry="3"/>
           </svg>
         );
       case 'certificates':
         return (
           <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
-            {/* 중년 - 약간 더 넓은 어깨 */}
-            <circle cx="12" cy="4.5" r="2.5" />
-            <rect x="9.5" y="8" width="5" height="7" rx="2.5" />
-            <rect x="6.5" y="9" width="3" height="5" rx="1.5" />
-            <rect x="14.5" y="9" width="3" height="5" rx="1.5" />
-            <rect x="10" y="16" width="1.5" height="6" rx="0.75" />
-            <rect x="12.5" y="16" width="1.5" height="6" rx="0.75" />
+            {/* 중년 - 연결된 형태, 약간 더 넓은 어깨 */}
+            <path d="M12 2.5C10.5 2.5 9.5 3.5 9.5 5C9.5 6.5 10.5 7.5 12 7.5C13.5 7.5 14.5 6.5 14.5 5C14.5 3.5 13.5 2.5 12 2.5Z M9.5 8.5C9.5 8.5 10.5 8.5 12 8.5C13.5 8.5 14.5 8.5 14.5 8.5C15.5 9 16 10 16 11.5L16 16.5C16 17 15.5 17.5 15 17.5L13.5 17.5L13.5 21.5C13.5 22 13 22.5 12.5 22.5L11.5 22.5C11 22.5 10.5 22 10.5 21.5L10.5 17.5L9 17.5C8.5 17.5 8 17 8 16.5L8 11.5C8 10 8.5 9 9.5 8.5Z"/>
+            {/* 팔 - 더 넓게 */}
+            <ellipse cx="7" cy="12" rx="1.5" ry="3.5"/>
+            <ellipse cx="17" cy="12" rx="1.5" ry="3.5"/>
           </svg>
         );
       case 'skills':
         return (
           <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
-            {/* 장년 - 더 성숙한 형태, 약간 구부정한 */}
-            <circle cx="12" cy="5" r="2.5" />
-            <path d="M9 8 Q12 9 15 8 L15 15 Q12 16 9 15 Z" />
-            <rect x="6" y="10" width="3" height="4" rx="1.5" />
-            <rect x="15" y="10" width="3" height="4" rx="1.5" />
-            <rect x="10" y="16" width="1.5" height="6" rx="0.75" />
-            <rect x="12.5" y="16" width="1.5" height="6" rx="0.75" />
+            {/* 장년 - 연결된 형태, 약간 구부정한 */}
+            <path d="M12 3C10.5 3 9.5 4 9.5 5.5C9.5 7 10.5 8 12 8C13.5 8 14.5 7 14.5 5.5C14.5 4 13.5 3 12 3Z M9.5 9C9.5 9 10.5 9 12 9C13.5 9 14.5 9 14.5 9C15.5 9.5 16 10.5 16 12L15.8 16.5C15.8 17 15.3 17.5 14.8 17.5L13.3 17.5L13.3 21.5C13.3 22 12.8 22.5 12.3 22.5L11.7 22.5C11.2 22.5 10.7 22 10.7 21.5L10.7 17.5L9.2 17.5C8.7 17.5 8.2 17 8.2 16.5L8 12C8 10.5 8.5 9.5 9.5 9Z"/>
+            {/* 팔 - 살짝 아래로 */}
+            <ellipse cx="7" cy="13" rx="1.5" ry="3"/>
+            <ellipse cx="17" cy="13" rx="1.5" ry="3"/>
           </svg>
         );
       case 'activities':
         return (
           <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
-            {/* 할아버지 - 지팡이를 든 노인 */}
-            <circle cx="11" cy="5" r="2.5" />
-            <path d="M8 8 Q11 9 14 8 L13 15 Q11 16 8 15 Z" />
-            <rect x="5" y="10" width="2.5" height="4" rx="1.25" />
-            <rect x="13" y="10" width="2.5" height="4" rx="1.25" />
-            <rect x="9" y="16" width="1.5" height="6" rx="0.75" />
-            <rect x="11.5" y="16" width="1.5" height="6" rx="0.75" />
-            {/* 지팡이 */}
-            <rect x="16" y="8" width="1" height="14" rx="0.5" />
-            <circle cx="16.5" cy="7" r="1" />
+            {/* 할아버지 - 연결된 형태, 약간 구부정하고 지팡이 */}
+            <path d="M11 3.5C9.5 3.5 8.5 4.5 8.5 6C8.5 7.5 9.5 8.5 11 8.5C12.5 8.5 13.5 7.5 13.5 6C13.5 4.5 12.5 3.5 11 3.5Z M9 9.5C9 9.5 9.5 9.5 11 9.5C12.5 9.5 13 9.5 13 9.5C14 10 14.5 11 14.5 12.5L14.2 17C14.2 17.5 13.7 18 13.2 18L12.2 18L12.2 22C12.2 22.5 11.7 23 11.2 23L10.8 23C10.3 23 9.8 22.5 9.8 22L9.8 18L8.8 18C8.3 18 7.8 17.5 7.8 17L7.5 12.5C7.5 11 8 10 9 9.5Z"/>
+            {/* 왼팔 */}
+            <ellipse cx="6.5" cy="13.5" rx="1.5" ry="2.5"/>
+            {/* 오른팔과 지팡이 */}
+            <ellipse cx="15.5" cy="12.5" rx="1" ry="2"/>
+            <rect x="17" y="10" width="1.5" height="12" rx="0.75" fill="currentColor"/>
+            <ellipse cx="17.8" cy="9" rx="1" ry="1.5"/>
           </svg>
         );
       default:
